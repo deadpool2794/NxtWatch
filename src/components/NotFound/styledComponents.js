@@ -7,7 +7,7 @@ export const NotFoundSection = styled.div`
 `
 
 export const NotFoundImage = styled.img`
-  width: 100%;
+  width: 60%;
 `
 
 export const NotFoundText = styled.h1`
