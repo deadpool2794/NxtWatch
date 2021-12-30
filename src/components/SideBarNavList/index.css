@@ -1,0 +1,20 @@
+.nav-icon {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 16px;
+  color: black;
+}
+
+.dark {
+  color: white;
+}
+
+.link-nav {
+  text-decoration: unset;
+  display: flex;
+}
+
+.trending-icon {
+  font-size: 32px;
+  color: red;
+}
