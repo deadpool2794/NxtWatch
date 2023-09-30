@@ -13,6 +13,8 @@ import {
   CheckBoxLabel,
   LoginButton,
   ErrorMsg,
+  AutomaticLogin,
+  AutomaticLoginLink,
 } from './styledComponents'
 
 class Login extends Component {
@@ -29,8 +31,7 @@ class Login extends Component {
     this.setState(prevState => ({showPassword: !prevState.showPassword}))
   }
 
-  onSubmitLoginForm = async event => {
-    event.preventDefault()
+  login = async () => {
     const {username, password} = this.state
     const options = {
       method: 'POST',
@@ -45,6 +46,11 @@ class Login extends Component {
     } else {
       this.loginFailure(parsedLoginResponse.error_msg)
     }
+  }
+
+  onSubmitLoginForm = async event => {
+    event.preventDefault()
+    this.login();
   }
 
   loginFailure = errorMsg => {
@@ -63,6 +69,12 @@ class Login extends Component {
 
   onChangePassword = event => {
     this.setState({password: event.target.value})
+  }
+
+  onCickAutomaticLogin = async () => {
+    await this.setState({username : "rahul", password : "rahul@2021"})
+    const {username, password} = this.state
+    this.login();
   }
 
   render() {
@@ -122,6 +134,7 @@ class Login extends Component {
                   </CheckBoxLabel>
                 </div>
                 <LoginButton type="submit">Login</LoginButton>
+                <AutomaticLogin isDark={isDark}><AutomaticLoginLink onClick = {this.onCickAutomaticLogin}>Click here</AutomaticLoginLink> if you do not have an account</AutomaticLogin>
                 {errorMsg === '' ? (
                   <ErrorMsg>{}</ErrorMsg>
                 ) : (

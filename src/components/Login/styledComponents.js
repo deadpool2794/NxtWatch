@@ -9,6 +9,12 @@ export const LoginContainer = styled.div`
   align-items: center;
 `
 
+export const AutomaticLogin = styled.p`
+  font-size: 10px;
+  cursor: pointer;
+  color: ${props => (props.isDark ? '#ffffff' : '#475569')};
+`
+
 export const LoginForm = styled.form`
   padding: 32px;
   width: 400px;
@@ -77,4 +83,7 @@ export const LoginButton = styled.button`
 export const ErrorMsg = styled.p`
   font-size: 12px;
   color: red;
+`
+export const AutomaticLoginLink = styled.span`
+  color : blue;
 `
